@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment</title>
+</head>
+<body>
+<div th:switch="${assignments}">
+    <h2 th:case="null">No users found!</h2>
+    <div th:case="*">
+        <h2>Assignment</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Subject order</th>
+                <th>Sign control</th>
+                <th>Sign performance</th>
+                <th>Text</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="assignment : ${assignments}">
+                <td th:text="${assignment.id}"></td>
+                <td th:text="${assignment.subjectOrder}"></td>
+                <td th:text="${assignment.signControl}"></td>
+                <td th:text="${assignment.signPerformance}"></td>
+                <td th:text="${assignment.textOrder}"></td>
+                <td><a th:href="@{assignment-update/{id}(id=${assignment.id})}">Edit</a></td>
+                <td><a th:href="@{assignment-delete/{id}(id=${assignment.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/assignment-create">Create assignment</a></p>
+</div>
+</body>
+</html>
