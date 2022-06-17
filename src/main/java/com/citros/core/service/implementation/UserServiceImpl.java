@@ -6,10 +6,12 @@ import com.citros.core.service.interface_impl.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
-@Service
 @RequiredArgsConstructor
+@Service
+@Transactional
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 

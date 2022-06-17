@@ -5,6 +5,7 @@ import com.citros.core.model.User;
 
 import java.util.List;
 
+
 public interface UserService {
     User create(User user);
     User getUser(Long id);
